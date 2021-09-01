@@ -14,18 +14,20 @@ window.ylOne = function (authority, conditions, version) {
       // 判断版本
       const isAvailable = parseFloat(version) >= parseFloat(item.version);
       if (location.href.includes(item.url) && isAvailable) {
-        doLogin();
         function doLogin() {
           const usernameEl = document.querySelector(item.usernameSelector);
           const passwordEl = document.querySelector(item.passwordSelector);
-          if (usernameEl && !usernameEl.value) {
+          const usernameVal = usernameEl._valueTracker ? usernameEl.getValue() : usernameEl.value;
+          const passwordVal = passwordEl._valueTracker ? passwordEl.getValue() : passwordEl.value;
+
+          if (usernameEl && !usernameVal) {
             keyboardInput(usernameEl, authority.username);
           }
-          if (passwordEl && !passwordEl.value) {
+          if (passwordEl && !passwordVal) {
             keyboardInput(passwordEl, authority.password);
           }
   
-          if (!usernameEl || !passwordEl) {
+          if (!usernameVal || !passwordVal) {
             setTimeout(() => {
               loop(retryTimes);
             }, 500);
@@ -121,10 +123,10 @@ window.ylOne = function (authority, conditions, version) {
     dom.dispatchEvent(evt);
   }
 
-  function handleSubmit(selector, delayInputTime = 100) {
+  function handleSubmit(selector) {
     setTimeout(() => {
       document.querySelector(selector).click();
-    }, delayInputTime);
+    }, 100);
   }
 };
 
