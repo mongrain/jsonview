@@ -19,8 +19,8 @@ window.ylOne = function (authority, conditions, version) {
         function doLogin() {
           const usernameEl = document.querySelector(item.usernameSelector);
           const passwordEl = document.querySelector(item.passwordSelector);
-          const usernameVal = usernameEl._valueTracker ? usernameEl._valueTracker.getValue() : usernameEl.value;
-          const passwordVal = passwordEl._valueTracker ? passwordEl._valueTracker.getValue() : passwordEl.value;
+          const usernameVal = usernameEl && usernameEl._valueTracker ? usernameEl._valueTracker.getValue() : usernameEl.value;
+          const passwordVal = passwordEl &&passwordEl._valueTracker ? passwordEl._valueTracker.getValue() : passwordEl.value;
 
           if (usernameEl && !usernameVal) {
             keyboardInput(usernameEl, authority.username);
@@ -96,7 +96,7 @@ window.ylOne = function (authority, conditions, version) {
     }
   }
 
-  loop(times);
+  loop();
 
   function hashWatch() {
     if (watcher) return;
