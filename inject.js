@@ -19,23 +19,26 @@ window.ylOne = function (authority, conditions, version) {
         function doLogin() {
           const usernameEl = document.querySelector(item.usernameSelector);
           const passwordEl = document.querySelector(item.passwordSelector);
-          const usernameVal = usernameEl && usernameEl._valueTracker ? usernameEl._valueTracker.getValue() : usernameEl.value;
-          const passwordVal = passwordEl &&passwordEl._valueTracker ? passwordEl._valueTracker.getValue() : passwordEl.value;
-
-          if (usernameEl && !usernameVal) {
-            keyboardInput(usernameEl, authority.username);
-          }
-          if (passwordEl && !passwordVal) {
-            keyboardInput(passwordEl, authority.password);
-          }
-  
-          if (!usernameVal || !passwordVal) {
+          
+          if (!usernameEl || !passwordEl) {
             setTimeout(() => {
               loop(retryTimes);
             }, 500);
-          } else {
-            handleSubmit(item.submitSelector, item.delayInputTime);
+
+            return;
+          } 
+
+          const usernameVal = usernameEl._valueTracker ? usernameEl._valueTracker.getValue() : usernameEl.value;
+          const passwordVal = passwordEl._valueTracker ? passwordEl._valueTracker.getValue() : passwordEl.value;
+
+          if (!usernameVal) {
+            keyboardInput(usernameEl, authority.username);
           }
+          if (!passwordVal) {
+            keyboardInput(passwordEl, authority.password);
+          }
+  
+          handleSubmit(item.submitSelector, item.delayInputTime);
         }
         // 不走了
         return;
