@@ -102,18 +102,21 @@ window.ylOne = function (authority, conditions, version) {
   }
 
   function keyboardInput(dom, st) {
-    var evt = new InputEvent("input", {
-      inputType: "insertText",
-      data: st,
-      dataTransfer: null,
-      isComposing: false,
-    });
-    dom.value = st;
+    var evt;
     
     // hack React16 内部定义了descriptor拦截value，此处重置状态
     let tracker = dom._valueTracker;
     if (tracker) {
-      tracker.setValue('panweizheng');
+      evt = new Event('input', { bubbles: true });
+      tracker.setValue(st);
+    } else {
+      evt = new InputEvent("input", {
+        inputType: "insertText",
+        data: st,
+        dataTransfer: null,
+        isComposing: false,
+      });
+      dom.value = st;
     }
     dom.dispatchEvent(evt);
   }
