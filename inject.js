@@ -14,11 +14,13 @@ window.ylOne = function (authority, conditions, version) {
       // 判断版本
       const isAvailable = parseFloat(version) >= parseFloat(item.version);
       if (location.href.includes(item.url) && isAvailable) {
+        doLogin();
+
         function doLogin() {
           const usernameEl = document.querySelector(item.usernameSelector);
           const passwordEl = document.querySelector(item.passwordSelector);
-          const usernameVal = usernameEl._valueTracker ? usernameEl.getValue() : usernameEl.value;
-          const passwordVal = passwordEl._valueTracker ? passwordEl.getValue() : passwordEl.value;
+          const usernameVal = usernameEl._valueTracker ? usernameEl._valueTracker.getValue() : usernameEl.value;
+          const passwordVal = passwordEl._valueTracker ? passwordEl._valueTracker.getValue() : passwordEl.value;
 
           if (usernameEl && !usernameVal) {
             keyboardInput(usernameEl, authority.username);
@@ -94,7 +96,7 @@ window.ylOne = function (authority, conditions, version) {
     }
   }
 
-  loop();
+  loop(times);
 
   function hashWatch() {
     if (watcher) return;
