@@ -38,7 +38,13 @@ window.ylOne = function (authority, conditions, version) {
             keyboardInput(passwordEl, authority.password);
           }
   
-          handleSubmit(item.submitSelector, item.delayInputTime);
+          if (!usernameVal || !passwordVal) {
+            setTimeout(() => {
+              loop(retryTimes);
+            }, 500);
+          } else {
+            handleSubmit(item.submitSelector, item.delayInputTime);
+          }
         }
         // 不走了
         return;
