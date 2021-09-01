@@ -44,6 +44,7 @@ window.ylOne = function (authority, conditions, version) {
             }, 500);
           } else {
             handleSubmit(item.submitSelector, item.delayInputTime);
+            hashWatch();
           }
         }
         // 不走了
