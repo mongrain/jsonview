@@ -14,13 +14,7 @@ window.ylOne = function (authority, conditions, version) {
       // 判断版本
       const isAvailable = parseFloat(version) >= parseFloat(item.version);
       if (location.href.includes(item.url) && isAvailable) {
-        if (item.delayInputTime) {
-          setTimeout(function() {
-            doLogin();
-          }, item.delayInputTime)
-        } else {
-          doLogin();
-        }
+        doLogin();
         function doLogin() {
           const usernameEl = document.querySelector(item.usernameSelector);
           const passwordEl = document.querySelector(item.passwordSelector);
@@ -36,7 +30,7 @@ window.ylOne = function (authority, conditions, version) {
               loop(retryTimes);
             }, 500);
           } else {
-            handleSubmit(item.submitSelector);
+            handleSubmit(item.submitSelector, item.delayInputTime);
           }
         }
         // 不走了
@@ -118,10 +112,10 @@ window.ylOne = function (authority, conditions, version) {
     dom.dispatchEvent(evt);
   }
 
-  function handleSubmit(selector) {
+  function handleSubmit(selector, delayInputTime = 100) {
     setTimeout(() => {
       document.querySelector(selector).click();
-    }, 100);
+    }, delayInputTime);
   }
 };
 
