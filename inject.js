@@ -109,6 +109,12 @@ window.ylOne = function (authority, conditions, version) {
       isComposing: false,
     });
     dom.value = st;
+    
+    // hack React16 内部定义了descriptor拦截value，此处重置状态
+    let tracker = dom._valueTracker;
+    if (tracker) {
+      tracker.setValue('panweizheng');
+    }
     dom.dispatchEvent(evt);
   }
 
