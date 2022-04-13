@@ -22,5 +22,13 @@ document.body.addEventListener('click', function() {
 })
 
     })()
+
+
+  // sw  
+  !(function(d){
+    const script = document.createElement('script');
+    script.innerHTML = "if (navigator.serviceWorker != null) { navigator.serviceWorker.register('sw.js').then(function(registration) { console.log('Registered events at scope: ', registration.scope); });}";
+    d.body.append(script);
+  })(document);
 </script>
 </html>
