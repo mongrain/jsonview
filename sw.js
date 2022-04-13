@@ -7,6 +7,8 @@ var cacheList = [
   '/jsonviewer/static/js/2.4edbeab5.chunk.js',
   '/jsonviewer/static/js/main.7b6a177e.chunk.js',
   '/jsonviewer/static/js/runtime-main.23fe0c48.js',
+  '/jsonviewer/static/css/static/media/jsoneditor-icons.2b9b4872.svg',
+  '/jsonviewer/icon.png',
   '/jsonviewer/index.html'
 ]
 
