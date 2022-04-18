@@ -21,6 +21,10 @@ document.body.addEventListener('click', function() {
   }, 1000)
 })
 
+document.addEventListener('click', (e) => {
+    if(e.target.className === 'ace_content') e.stopPropagation();
+}, true)
+
     })()
 
 
