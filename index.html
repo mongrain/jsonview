@@ -9,8 +9,7 @@ document.body.addEventListener('click', function() {
   single--;
   if (single < 0 && !_trigger) {
     _trigger = true;
-    document.querySelector('.jsoneditor-react-container').remove();
-    document.querySelector('.jsoneditor-react-container').remove();
+    Array.from(document.querySelectorAll('.jsoneditor-react-container')).slice(1).forEach(el => el.remove());
     document.querySelector('.jsoneditor').style.width = 'auto'
   }
 
