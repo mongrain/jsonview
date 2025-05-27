@@ -2,14 +2,14 @@ console.log('Script loaded!')
 var cacheStorageKey = 'minimal-pwa-8'
 
 var cacheList = [
-  '/jsonviewer/static/css/2.36fcf5ee.chunk.css',
-  '/jsonviewer/static/css/main.538285c4.chunk.css',
-  '/jsonviewer/static/js/2.4edbeab5.chunk.js',
-  '/jsonviewer/static/js/main.7b6a177e.chunk.js',
-  '/jsonviewer/static/js/runtime-main.23fe0c48.js',
-  '/jsonviewer/static/css/static/media/jsoneditor-icons.2b9b4872.svg',
-  '/jsonviewer/icon.png',
-  '/jsonviewer/index.html'
+  '/jsonvier/static/css/2.36fcf5ee.chunk.css',
+  '/jsonview/static/css/main.538285c4.chunk.css',
+  '/jsonview/static/js/2.4edbeab5.chunk.js',
+  '/jsonview/static/js/main.7b6a177e.chunk.js',
+  '/jsonview/static/js/runtime-main.23fe0c48.js',
+  '/jsonview/static/css/static/media/jsoneditor-icons.2b9b4872.svg',
+  '/jsonview/icon.png',
+  '/jsonview/index.html'
 ]
 
 self.addEventListener('install', function(e) {
