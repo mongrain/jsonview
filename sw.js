@@ -1,8 +1,8 @@
 console.log('Script loaded!')
-var cacheStorageKey = 'minimal-pwa-8'
+var cacheStorageKey = 'minimal-pwa-10'
 
 var cacheList = [
-  '/jsonvier/static/css/2.36fcf5ee.chunk.css',
+  '/jsonview/static/css/2.36fcf5ee.chunk.css',
   '/jsonview/static/css/main.538285c4.chunk.css',
   '/jsonview/static/js/2.4edbeab5.chunk.js',
   '/jsonview/static/js/main.7b6a177e.chunk.js',
