@@ -9,7 +9,8 @@ var cacheList = [
   '/jsonview/static/js/runtime-main.23fe0c48.js',
   '/jsonview/static/css/static/media/jsoneditor-icons.2b9b4872.svg',
   '/jsonview/icon.png',
-  '/jsonview/index.html'
+  '/jsonview/index.html',
+  'jsonview/'
 ]
 
 self.addEventListener('install', function(e) {
